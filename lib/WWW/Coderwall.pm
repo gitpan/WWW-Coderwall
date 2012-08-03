@@ -13,6 +13,7 @@ sub get_user {
     return WWW::Coderwall::User->new_from_username($username); 
 }
 
+
 1;
 
 __END__
@@ -24,23 +25,28 @@ WWW::Coderwall - Simple Perl interface to the coderwall API
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
     use WWW::Coderwall;
+    use Data::Printer;
 
     $cw = WWW::Coderwall->new;
 
     $user = $cw->get_user($username);
 
-    print $user->location;
+    p $user->badges;
 
 =head1 METHODS
 
 =head2 get_user
 
-Returns a WWW::Coderwall::User object given a username.
+Returns a L<WWW::Coderwall::User> object given a username.
+
+=head1 SEE ALSO
+
+L<WWW::Coderwall::User>
 
 =head1 AUTHOR
 

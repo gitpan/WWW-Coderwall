@@ -19,4 +19,7 @@ requires:
   JSON: 0
   LWP::Simple: 0
   Moo: 0
-version: 0.001
+resources:
+  bugtracker: https://github.com/rpicard/p5-www-coderwall/issues
+  repository: git://github.com/rpicard/p5-www-coderwall.git
+version: 0.002
