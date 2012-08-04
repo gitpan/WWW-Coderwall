@@ -7,3 +7,4 @@ dist.ini
 lib/WWW/Coderwall.pm
 lib/WWW/Coderwall/User.pm
 t/00-load.t
+t/01-base.t

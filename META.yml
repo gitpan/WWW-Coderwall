@@ -16,10 +16,11 @@ meta-spec:
   version: 1.4
 name: WWW-Coderwall
 requires:
+  Data::Printer: 0
   JSON: 0
-  LWP::Simple: 0
+  LWP::UserAgent: 0
   Moo: 0
 resources:
   bugtracker: https://github.com/rpicard/p5-www-coderwall/issues
   repository: git://github.com/rpicard/p5-www-coderwall.git
-version: 0.002
+version: 0.003

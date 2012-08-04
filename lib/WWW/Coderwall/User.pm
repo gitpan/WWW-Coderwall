@@ -1,8 +1,5 @@
 package WWW::Coderwall::User;
 
-use LWP::Simple;
-use JSON;
-
 use Moo;
 
 
@@ -40,29 +37,6 @@ has badges => (
     is => 'ro',
 );
 
-
-sub new_from_username {
-    my ( $self, $username ) = @_;
-
-    my $uri = "http://coderwall.com/$username.json";
-
-    my $raw_json = get($uri);
-
-    my $json = JSON->new->allow_nonref;
-
-    my %user_data = %{$json->pretty->decode( $raw_json )};
-
-    return __PACKAGE__->new(
-        username    => $user_data{'username'}, 
-        name        => $user_data{'name'},
-        location    => $user_data{'location'},
-        team        => $user_data{'team'},
-        accounts    => $user_data{'accounts'},
-        badges      => $user_data{'badges'},
-        endorsements    => $user_data{'endorsements'},
-    );
-}
-
 1;
 
 __END__
@@ -74,7 +48,7 @@ WWW::Coderwall::User
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 ATTRIBUTES
 
@@ -84,34 +58,27 @@ coderwall username
 
 =head2 name
 
-Full name
+full name
 
 =head2 location
 
-The location set in the user's coderwall profile
+location set in the user's coderwall profile
 
 =head2 endorsements
 
-The number of endorsements the user has received
+number of endorsements the user has received
 
 =head2 team
 
-The team that the user belongs to.
+id of the user's team
 
 =head2 accounts
 
-A hash of accounts that the user has added in their profile
+hash of accounts that the user has added in their profile
 
 =head2 badges
 
-An array of badges that the user has earned
-
-=head1 METHODS
-
-=head2 new_from_username
-
-Returns a new WWW::Coderwall::User object created with information from
-a call to the API with a given username.
+array of badges that the user has earned
 
 =head1 AUTHOR
 
